@@ -1,12 +1,11 @@
 import { getLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
-
-  if (localStorage.getItem("so-cart")) { 
+  if (localStorage.getItem("so-cart")) {
     const cartItems = getLocalStorage("so-cart");
-  // possibly use cartItems array to find duplicate products to add up quantity to put in to html.
-  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
+    // possibly use cartItems array to find duplicate products to add up quantity to put in to html.
+    const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+    document.querySelector(".product-list").innerHTML = htmlItems.join("");
   }
 }
 
