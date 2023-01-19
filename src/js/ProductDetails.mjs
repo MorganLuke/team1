@@ -70,7 +70,7 @@ addToCart() {
       productDetailsTemplate(this.product)
     );
   }
-}
+};
 
 //   // add listener to Add to Cart button
   // document
