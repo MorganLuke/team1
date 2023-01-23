@@ -25,6 +25,11 @@ body {
 img {
   max-width: 100%;
 }
+/* .hide is used to hide elements until needed such as the cart total and the checkout button js will be used to remove it to show elements */
+.hide {
+  display: none;
+}
+
 header {
   display: flex;
   justify-content: space-between;
