@@ -1,12 +1,21 @@
 import { getLocalStorage } from "./utils.mjs";
 
+let cTotal = 0;
+
 function renderCartContents() {
   if (localStorage.getItem("so-cart")) {
     const cartItems = getLocalStorage("so-cart");
+    let total = 0;
+    // let total = int;
     // possibly use cartItems array to find duplicate products to add up quantity to put in to html.
     const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+    document.getElementById("cart-footer").classList.remove("hide");
+    cartItems.forEach((item) => (total = cartTotal(item)));
+    // const finalTotal = total.reduce();
     document.querySelector(".product-list").innerHTML = htmlItems.join("");
+    document.querySelector(".cart-total").innerHTML = `Total: $${total}`;
   }
+  // else cart empty message
 }
 
 function cartItemTemplate(item) {
@@ -26,6 +35,10 @@ function cartItemTemplate(item) {
 </li>`;
 
   return newItem;
+}
+function cartTotal(item) {
+  cTotal += item.FinalPrice;
+  return cTotal;
 }
 
 renderCartContents();
