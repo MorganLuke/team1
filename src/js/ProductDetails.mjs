@@ -49,6 +49,15 @@ addToCart() {
     cart_list.push(this.product);
     setLocalStorage("so-cart", cart_list);
 
+    // Adds shake animation to cart when items are being added to the cart
+    const cartIcon = document.getElementById("cart-icon");
+    cartIcon.classList.add("shake");
+    // The animation will shake the cart for 0.5seconds
+    setTimeout(function() {
+      // After the animation is done removes the shake class
+      cartIcon.classList.remove("shake");
+    }, 500)
+
 }
 //  addProductToCart(product) {
 //     let cart_list = [];

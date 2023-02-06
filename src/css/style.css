@@ -114,6 +114,47 @@ button {
 .cart:hover svg {
   fill: gray;
 }
+#cart-icon {
+  transition: all 1s ease-in-out;
+}
+
+#cart-icon.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  10% {
+    transform: translate(-5px, 10px);
+  }
+  20% {
+    transform: translate(5px, -10px);
+  }
+  30% {
+    transform: translate(-5px, 10px);
+  }
+  40% {
+    transform: translate(5px, -10px);
+  }
+  50% {
+    transform: translate(0px, 0px);
+  }
+}
+/* @keyframes shake {
+  0% { transform: translate(0, 0); }
+  10% { transform: translate(-10px, 0); }
+  20% { transform: translate(10px, 0); }
+  30% { transform: translate(-10px, 0); }
+  40% { transform: translate(10px, 0); }
+  50% { transform: translate(-10px, 0); }
+  60% { transform: translate(10px, 0); }
+  70% { transform: translate(-10px, 0); }
+  80% { transform: translate(10px, 0); }
+  90% { transform: translate(-10px, 0); }
+  100% { transform: translate(0, 0); }
+} */
 
 /* End cart icon styles */
 
@@ -159,6 +200,17 @@ button {
 .card__name {
   font-size: 1em;
 }
+#clear-cart-button {
+  padding: 10px 20px;
+  background-color: #eb4949;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  float: right;
+  margin-top: 10px;
+}
+
 /* End product list card */
 
 .product-detail {
@@ -212,6 +264,12 @@ button {
   margin-bottom: 20px;
   font-weight: bold;
   cursor: pointer;
+}
+#empty-cart-message {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-align: center;
 }
 @media screen and (min-width: 500px) {
   body {
