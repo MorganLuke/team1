@@ -5,7 +5,7 @@ import { loadHeaderFooter } from "./utils.mjs";
 
 loadHeaderFooter();
 
-const category = getParam('category');
+const category = getParam("category");
 const dataSource = new ProductData("tents");
 
 const productId = getParam("product");
