@@ -10,7 +10,7 @@ const dataSource = new ProductData("tents");
 
 const productId = getParam("product");
 
-const product = new ProductDetails(category, productId, dataSource);
+const product = new ProductDetails(productId, dataSource);
 product.init();
 
 // console.log(dataSource.findProductById(productId));
