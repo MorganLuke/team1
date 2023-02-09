@@ -4,7 +4,8 @@ import { renderListWithTemplate } from "./utils.mjs";
 
 
 function productCardTemplate(product) {
-    let discount = product.SuggestedRetailPrice - product.FinalPrice
+    let discount = product.SuggestedRetailPrice - product.FinalPrice;
+    let retail = product.SuggestedRetailPrice;
     return `<li class="product-card">
     <a href="/product_pages/index.html?product=${product.Id}">
     <img
@@ -13,8 +14,9 @@ function productCardTemplate(product) {
     />
     <h3 class="card__brand">${product.Brand.Name}</h3>
     <h2 class="card__name">${product.Name}</h2>
-    <p class="product-card__price">$${product.FinalPrice}</p>
+     <p class="retail"> Retail Price: $${retail}</p>
     <p class="product_discount"> Discount: $${discount.toFixed(2)}</p>
+    <p class="product-card__price">$${product.FinalPrice}</p>
     </a>
     
   </li>`;
@@ -33,6 +35,7 @@ export default class ProductList {
         const list = await this.dataSource.getData(this.category);
         // render the list 
         this.renderList(list);
+        // add category to title on product cat page
         document.querySelector(".title").innerHTML = this.category;
       }
     renderList(list) {

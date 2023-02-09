@@ -331,3 +331,8 @@ footer {
 .product_discount {
   color: red;
 }
+
+/* for uppercase category on product page */
+span.title {
+  text-transform: capitalize;
+}
