@@ -1,6 +1,6 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
-let cTotal = 0;
+// let cTotal = 0;
 
 // Declare class ShoppingCart
 export default class ShoppingCart {
