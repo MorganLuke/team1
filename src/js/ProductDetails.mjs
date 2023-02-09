@@ -3,16 +3,18 @@ import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 // import ProductData from "./ProductData.mjs";
 // import {ProductDetails, addProductToCart} from "./ProductDetails.mjs";
 function productDetailsTemplate(product) {
-  let discount = product.SuggestedRetailPrice - product.FinalPrice
+  let discount = product.SuggestedRetailPrice - product.FinalPrice;
+  let retail = product.SuggestedRetailPrice;
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
     <h2 class="divider">${product.NameWithoutBrand}</h2>
     <img
       class="divider"
-      src="${product.Image}"
+      src="${product.Images.PrimaryLarge}"
       alt="${product.NameWithoutBrand}"
     />
-    <p class="product-card__price">$${product.FinalPrice}</p>
+    <p class="retail"> Retail Price: $${retail}</p>
     <p class="product_discount"> Discount: -$${discount.toFixed(2)}</p>
+    <p class="product-card__price">$${product.FinalPrice}</p>
     <p class="product__color">${product.Colors[0].ColorName}</p>
     <p class="product__description">
     ${product.DescriptionHtmlSimple}
