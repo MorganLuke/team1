@@ -3,7 +3,7 @@ import { renderListWithTemplate } from "./utils.mjs";
 
 
 
-function productCardTemplate(product) {
+export function productCardTemplate(product) {
     let discount = product.SuggestedRetailPrice - product.FinalPrice;
     let retail = product.SuggestedRetailPrice;
     return `<li class="product-card">
