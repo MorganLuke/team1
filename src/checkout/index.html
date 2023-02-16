@@ -8,18 +8,20 @@
 
     <title>Sleep Outside | Checkout</title>
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/checkout.js" type="module"></script>
+
   </head>
 
   <body>
     <header class="divider" id="main-header"></header>
 
     <main class="divider">
-      <section class="products">
         <h2>Review & Place your Order</h2>
         <form class="checkout-form">
+  <section class="checkout-form">
 
-<form>
+<form name="checkout">
  <fieldset> 
     <legend>Shipping</legend>
     <label for="fname">First name:</label>
@@ -46,17 +48,29 @@
 
  </fieldset>
  <fieldset class="checkout-summary">
-    <legend>Order Summary:</legend>
-    <p>Item Subtotal<span id="numItems"></span></p>
-    <p><span id="subtotal"></span></p>
-    <p>Shipping Estimate</p>
-    <p><span id="shipping"></span></p>
-    <p>Tax</p>
-    <p><span id="tax"></span></p>
-    <p>Order Total</p>
-    <p><span id="orderTotal"></span></p>
- </fieldset>
- <button type="submit">Checkout</button>
+  <legend>Order Summary</legend>
+  <ul>
+    <li>
+      <label for="cartTotal"
+        >Item Subtotal(<span id="num-items"></span>)</label
+      >
+      <p name="cartTotal" id="cartTotal"></p>
+    </li>
+    <li>
+      <label for="shipping">Shipping Estimate</label>
+      <p id="shipping"></p>
+    </li>
+    <li>
+      <label for="tax">Tax</label>
+      <p id="tax"></p>
+    </li>
+    <li>
+      <label for="orderTotal"><b>Order Total</b></label>
+      <p id="orderTotal"></p>
+    </li>
+  </ul>
+</fieldset>
+ <button id="checkoutSubmit" type="submit">Checkout</button>
 </form>
       </section>
     </main>

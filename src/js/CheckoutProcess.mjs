@@ -39,17 +39,30 @@ export default class CheckoutProcess {
       this.list = getLocalStorage(this.key);
       this.calculateItemSummary();
     }
+    // calculateItemSummary() {
+    //   // calculate and display the total amount of the items in the cart, and 
+    // //   the number of items.
+    // const numItems = document.querySelector(this.outputSelector + "#numItems")
+    // numItems.innerHTML = this.list.length;
+
+    // const subTotal = document.querySelector(this.outputSelector + "subtotal")
+    // const amount = this.list.map((item) => item.FinalPrice);
+    // this.itemTotal = amount.reduce((sum, item) => sum + item);
+    // subTotal.innerText = "$" + this.itemTotal;
+
+    // }
     calculateItemSummary() {
-      // calculate and display the total amount of the items in the cart, and 
-    //   the number of items.
-    const numItems = document.querySelector(this.outputSelector + "#numItems")
-    numItems.innerHTML = this.list.length;
-
-    const subTotal = document.querySelector(this.outputSelector + "subtotal")
-    const amount = this.list.map((item) => item.FinalPrice);
-    this.itemTotal = amount.reduce((sum, item) => sum + item);
-    subTotal.innerText = "$" + this.itemTotal;
-
+      const summaryElement = document.querySelector(
+        this.outputSelector + " #cartTotal"
+      );
+      const itemNumElement = document.querySelector(
+        this.outputSelector + " #num-items"
+      );
+      itemNumElement.innerText = this.list.length;
+      // calculate the total of all the items in the cart
+      const amounts = this.list.map((item) => item.FinalPrice);
+      this.itemTotal = amounts.reduce((sum, item) => sum + item);
+      summaryElement.innerText = "$" + this.itemTotal;
     }
     calculateOrdertotal() {
       // calculate the shipping and tax amounts. Then use them to along with the cart total to figure out the order total
@@ -93,3 +106,5 @@ export default class CheckoutProcess {
         }
       }
     }
+
+    
