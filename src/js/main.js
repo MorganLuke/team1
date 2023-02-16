@@ -1,5 +1,5 @@
 import { loadHeaderFooter, getLocalStorage, setLocalStorage, renderListWithTemplate } from "./utils.mjs";
-import ProductData from "./ProductData.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 import { productCardTemplate } from "./ProductList.mjs"
 
 loadHeaderFooter().then(() => {
@@ -9,7 +9,7 @@ loadHeaderFooter().then(() => {
     renderSearchResult(searchString.trim().toLowerCase()); // call renderSearchResult function after form submission
   });
 //   const searchString = getLocalStorage("search-string").toLowerCase();
-//   const dataSource = new ProductData();
+//   const dataSource = new ExternalServices();
 //   const listUl = document.querySelector(".product-list"); // Enclose the selector in quotes
 //   const titleHtml = document.querySelector(".title");
 
@@ -22,7 +22,7 @@ loadHeaderFooter().then(() => {
 //     titleHtml.innerHTML = `Showing ${searchResults.length} results for "${searchString}"`
 //   }
   async function renderSearchResult(searchString) {
-    const dataSource = new ProductData();
+    const dataSource = new ExternalServices();
     const listUl = document.querySelector(".product-list");
     const titleHtml = document.querySelector(".title");
     let searchResults = [];
