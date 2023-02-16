@@ -17,6 +17,47 @@
     <main class="divider">
       <section class="products">
         <h2>Review & Place your Order</h2>
+        <form class="checkout-form">
+          [10:12 AM] Luke, Morgan
+<form>
+ <fieldset> 
+    <legend>Shipping</legend>
+    <label for="fname">First name:</label>
+    <input type="text" id="fname" name="fname"><br><br>
+    <label for="lname">Last name:</label>
+    <input type="text" id="lname" name="lname"><br><br>
+    <label for="street">Street:</label>
+    <input type="text"  name="street"><br><br>
+    <label for="city">City:</label>
+    <input type="text"  name="city"><br><br>
+    <label for="state">State:</label>
+    <input type="text"  name="state"><br><br>
+    <label for="zip">Zip:</label>
+    <input type="number" name="zip"><br><br>
+ </fieldset>
+ <fieldset>
+    <legend>Payment</legend>
+    <label for="cardNumber">Card Number:</label>
+    <input type="number"  name="card-number"><br><br>
+    <label for="expiration">Expiration:</label>
+    <input type="number" name="expiration"><br><br>
+    <label for="code">Security Code:</label>
+    <input type="number"  name="code"><br><br>
+
+ </fieldset>
+ <fieldset>
+    <legend>Order Summary:</legend>
+    <p>Item Subtotal<span id="numItems"></span></p>
+    <p><span id="subtotal"></span></p>
+    <p>Shipping Estimate</p>
+    <p><span id="shipping"></span></p>
+    <p>Tax</p>
+    <p><span id="tax"></span></p>
+    <p>Order Total</p>
+    <p><span id="orderTotal"></span></p>
+ </fieldset>
+ <button type="submit">Checkout</button>
+</form>
       </section>
     </main>
 
