@@ -1,5 +1,5 @@
 const baseURL = "http://server-nodejs.cit.byui.edu:3000/"
-const checkoutURL = "http://server-nodejs.cit.byui.edu:3000/checkout"
+// const checkoutURL = "http://server-nodejs.cit.byui.edu:3000/checkout"
 
 function convertToJson(res) {
   if (res.ok) {
@@ -10,7 +10,7 @@ function convertToJson(res) {
 }
   
 export default class ExternalServices {
-  constructor(category) {
+  constructor() {
     // this.category = category;
     // this.path = `../json/${this.category}.json`;
   }
