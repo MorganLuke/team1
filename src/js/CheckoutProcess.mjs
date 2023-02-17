@@ -9,7 +9,7 @@ function formDataToJSON(formElement) {
   formData.forEach(function (value, key) {
     convertedJSON[key] = value;
   });
-
+  console.log(convertedJSON);
   return convertedJSON;
 }
 
@@ -89,7 +89,8 @@ export default class CheckoutProcess {
     }
     async checkout() {
         const formElement = document.forms["checkout"];
-    
+
+
         const json = formDataToJSON(formElement);
         // add totals, and item details
         json.orderDate = new Date();
@@ -97,6 +98,16 @@ export default class CheckoutProcess {
         json.tax = this.tax;
         json.shipping = this.shipping;
         json.items = packageItems(this.list);
+        // json.fname = document.querySelector(this.outputSelector + " #fname");
+        // json.lname = this.lname;
+        // json.street = this.street;
+        // json.city = this.city;
+        // json.state = this.state;
+        // json.zip = this.zip;
+        // json.cardNumber = this.cardNumber;
+        // json.experation = this.experation;
+        // json.code = this.code;
+        
         console.log(json);
         try {
           const res = await services.checkout(json);
