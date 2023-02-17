@@ -98,15 +98,7 @@ export default class CheckoutProcess {
         json.tax = this.tax;
         json.shipping = this.shipping;
         json.items = packageItems(this.list);
-        // json.fname = document.querySelector(this.outputSelector + " #fname");
-        // json.lname = this.lname;
-        // json.street = this.street;
-        // json.city = this.city;
-        // json.state = this.state;
-        // json.zip = this.zip;
-        // json.cardNumber = this.cardNumber;
-        // json.experation = this.experation;
-        // json.code = this.code;
+
         
         console.log(json);
         try {
