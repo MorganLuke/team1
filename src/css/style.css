@@ -283,6 +283,86 @@ button {
 .product-detail img {
   width: 100%;
 }
+/* Starts newsletter signup styles */
+.prevent-bot{
+  position: absolute;
+  left: -5000px;
+}
+.response{
+  display: none;
+}
+#mc_embed_signup {
+  /* background: linear-gradient(to right, #d9e48b, #7d882a); */
+  background: linear-gradient(to right, #f0a868, #c08d60);
+  padding: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+  border-radius: 5px;
+  font-size: 14px;
+  box-shadow: 0 0 10px;
+}
+
+#mc_embed_signup h2 {
+  font-size: 28px;
+  margin: 0 0 20px 0;
+  text-align: center;
+  /* padding: 10px; */
+  text-transform: uppercase;
+}
+
+#mc_embed_signup label {
+  display: block;
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#mc_embed_signup input[type="text"],
+#mc_embed_signup input[type="email"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin: 0 0 20px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+#mc_embed_signup input[type="submit"] {
+  background-color: var(--dark-grey);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+#mc_embed_signup input[type="submit"]:hover {
+  background-color: darkgray;
+  color: #333;
+}
+
+#mc_embed_signup .brandingLogo img {
+  max-width: 120px;
+  height: auto;
+  margin-top: 10px;
+}
+#mc_embed_signup .indicates-required {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  font-weight: bold;
+}
+#mc_embed_signup .foot{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* Newsletter signup styling ends */
 
 /* Start cart list card styles */
 .cart-card {
