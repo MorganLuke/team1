@@ -293,13 +293,14 @@ button {
 }
 #mc_embed_signup {
   /* background: linear-gradient(to right, #d9e48b, #7d882a); */
-  background: linear-gradient(to right, #f0a868, #c08d60);
+  /* background: linear-gradient(to right, #f0a868, #c08d60); */
   padding: 20px;
   max-width: 600px;
   margin: 20px auto;
+  
   border-radius: 5px;
   font-size: 14px;
-  box-shadow: 0 0 10px;
+  box-shadow: 0 0 15px;
 }
 
 #mc_embed_signup h2 {
