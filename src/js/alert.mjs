@@ -26,17 +26,18 @@ export default class Alert {
         const alertData = await this.getData();
         console.log(alertData);
         let alertSection = document.createElement("section");
-        alertSection.innerHTML = `<section class=alerts></section>`;
+        // alertSection.innerHTML = `<section class=alerts></section>`;
+        // alertSection.innerHTML = 
         alertData.map((item) => {   
             let para = document.createElement("p");
-            para.innerHTMl = `Alert: ${item.message}`;
+            para.textContent = `Alert: ${item.message}`;
             // const newItem = `<p> Alert: ${item.message}</p>`;
             para.style.backgroundColor = `${item.background}`;
             para.style.color = `${item.color}`;
             alertSection.appendChild(para);
     })
         // alertSection.innerHTML(`${htmlItems}`);
-        document.querySelector("main").prepend(`${alertSection}`);
+        document.querySelector("main").prepend(alertSection);
     }
 
     // alertTemplate(item) {
