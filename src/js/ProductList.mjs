@@ -21,12 +21,15 @@ export function productCardTemplate(product) {
   </li>`;
 }             
 
-
 export default class ProductList {
   constructor(category, dataSource, listElement) {
     this.category = category;
     this.dataSource = dataSource;
     this.listElement = listElement;
+
+    // Initialize sort functions
+    this.sortByName = this.sortByName.bind(this);
+    this.sortByPrice = this.sortByPrice.bind(this);
   }
 
   async init() {
@@ -35,22 +38,31 @@ export default class ProductList {
     this.renderList(this.products);
     document.querySelector(".title").innerHTML = this.category;
 
-    // Add event listeners for sorting by name
-    document.getElementById("sort-by-name").addEventListener("click", () => {
-      this.products.sort((a, b) => a.Name.localeCompare(b.Name));
-      this.renderList(this.products);
-    });
-    // Add event listeners for sorting by price
-    document.getElementById("sort-by-price").addEventListener("click", () => {
-      this.products.sort((a, b) => a.FinalPrice - b.FinalPrice);
-      this.renderList(this.products);
-    });
+    // Add event listeners for sorting by name and price
+    document.getElementById("sort-by-name").addEventListener("click", this.sortByName);
+    document.getElementById("sort-by-price").addEventListener("click", this.sortByPrice);
+  }
+
+  sortByName() {
+    this.products.sort((a, b) => a.Name.localeCompare(b.Name));
+    this.renderList(this.products);
+  }
+
+  sortByPrice() {
+    this.products.sort((a, b) => a.FinalPrice - b.FinalPrice);
+    this.renderList(this.products);
   }
 
   renderList(list) {
+    // Remove existing list items from the DOM
+    while (this.listElement.firstChild) {
+      this.listElement.removeChild(this.listElement.firstChild);
+    }
+    // Render the sorted list
     renderListWithTemplate(productCardTemplate, this.listElement, list);
   }
 }
+
 
     
 //     const sortSelect = document.createElement("select");
