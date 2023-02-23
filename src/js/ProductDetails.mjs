@@ -62,7 +62,21 @@ addToCart() {
       // After the animation is done removes the shake class
       cartIcon.classList.remove("shake");
     }, 500)
-
+      // Show the success message
+      const successMessage = document.createElement("div");
+      successMessage.innerHTML = "Item successfully added to cart!";
+      successMessage.style.backgroundColor = "green";
+      successMessage.style.color = "white";
+      successMessage.style.padding = "20px";
+      successMessage.style.position = "fixed";
+      successMessage.style.borderRadius = "5px"
+      // successMessage.style.transform = "translate(-50%, -50%)";
+      successMessage.style.top = "0";
+      successMessage.style.right = "0";
+      document.body.appendChild(successMessage);
+      setTimeout(() => {
+        successMessage.remove();
+      }, 3000);
 }
 //  addProductToCart(product) {
 //     let cart_list = [];

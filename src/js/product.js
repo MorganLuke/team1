@@ -18,5 +18,4 @@ product.init();
 const alert = new Alert();
 alert.processAlert();
 
-
 // console.log(dataSource.findProductById(productId));
