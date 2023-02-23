@@ -88,6 +88,7 @@ export default class CheckoutProcess {
       orderTotal.innerText = "$" + this.orderTotal;
     }
     async checkout() {
+
         const formElement = document.forms["checkout"];
 
 
@@ -99,11 +100,13 @@ export default class CheckoutProcess {
         json.shipping = this.shipping;
         json.items = packageItems(this.list);
 
-        
+
         console.log(json);
         try {
           const res = await services.checkout(json);
           console.log(res);
+          location.assign("/checkout/success.html");
+          localStorage.clear("so-cart");
         } catch (err) {
           console.log(err);
         }

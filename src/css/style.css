@@ -102,8 +102,9 @@ button {
 /* End utility classes */
 /* Search Box Styling */
 .search form {
-  display: flex; align-items: center;
-  margin-top: .9rem;
+  display: flex;
+  align-items: center;
+  margin-top: 0.9rem;
 }
 
 .search input[type="text"] {
@@ -297,11 +298,11 @@ button {
   width: 100%;
 }
 /* Starts newsletter signup styles */
-.prevent-bot{
+.prevent-bot {
   position: absolute;
   left: -5000px;
 }
-.response{
+.response {
   display: none;
 }
 #mc_embed_signup {
@@ -310,7 +311,7 @@ button {
   padding: 20px;
   max-width: 600px;
   margin: 20px auto;
-  
+
   border-radius: 5px;
   font-size: 14px;
   box-shadow: 0 0 15px;
@@ -371,7 +372,7 @@ button {
   padding: 10px;
   font-weight: bold;
 }
-#mc_embed_signup .foot{
+#mc_embed_signup .foot {
   display: flex;
   align-items: center;
   justify-content: space-between;
