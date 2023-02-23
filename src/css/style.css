@@ -254,6 +254,24 @@ button {
   text-decoration: none;
   color: var(--dark-grey);
 }
+/* Styles for sorting the products list by name or price*/
+.sort-button{
+  background: linear-gradient(to right, #e09450, #ce6c16);
+  color: white;
+
+  border: none;
+  border-radius: 5px;
+  outline: none;
+
+  font-weight: bold;
+  padding: 8px;
+  font-size: 16px;
+
+  cursor: pointer;
+}
+.sort-button:hover{
+  background: #ce6c16;
+}
 /* Styles for product lists */
 .product-card {
   flex: 1 1 45%;

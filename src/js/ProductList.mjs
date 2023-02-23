@@ -2,7 +2,6 @@
 import { renderListWithTemplate } from "./utils.mjs";
 
 
-
 export function productCardTemplate(product) {
     let discount = product.SuggestedRetailPrice - product.FinalPrice;
     let retail = product.SuggestedRetailPrice;
@@ -22,23 +21,76 @@ export function productCardTemplate(product) {
   </li>`;
 }             
 
-
 export default class ProductList {
-    constructor(category, dataSource, listElement) {
-        this.category = category;
-        this.dataSource = dataSource;
-        this.listElement = listElement;
+  constructor(category, dataSource, listElement) {
+    this.category = category;
+    this.dataSource = dataSource;
+    this.listElement = listElement;
+
+    // Initialize sort functions
+    this.sortByName = this.sortByName.bind(this);
+    this.sortByPrice = this.sortByPrice.bind(this);
+  }
+
+  async init() {
+    const list = await this.dataSource.getData(this.category);
+    this.products = list;
+    this.renderList(this.products);
+    document.querySelector(".title").innerHTML = this.category;
+
+    // Add event listeners for sorting by name and price
+    document.getElementById("sort-by-name").addEventListener("click", this.sortByName);
+    document.getElementById("sort-by-price").addEventListener("click", this.sortByPrice);
+  }
+
+  sortByName() {
+    this.products.sort((a, b) => a.Name.localeCompare(b.Name));
+    this.renderList(this.products);
+  }
+
+  sortByPrice() {
+    this.products.sort((a, b) => a.FinalPrice - b.FinalPrice);
+    this.renderList(this.products);
+  }
+
+  renderList(list) {
+    // Remove existing list items from the DOM
+    while (this.listElement.firstChild) {
+      this.listElement.removeChild(this.listElement.firstChild);
     }
-    async init() {
-        // our dataSource will return a Promise...so we can use await to resolve it.
-        // const list = await this.dataSource.getData();
-        const list = await this.dataSource.getData(this.category);
-        // render the list 
-        this.renderList(list);
-        // add category to title on product cat page
-        document.querySelector(".title").innerHTML = this.category;
-      }
-    renderList(list) {
-        renderListWithTemplate(productCardTemplate, this.listElement, list);
-      }
+    // Render the sorted list
+    renderListWithTemplate(productCardTemplate, this.listElement, list);
+  }
 }
+
+
+    
+//     const sortSelect = document.createElement("select");
+//     sortSelect.addEventListener("change", (e) => {
+//       if (e.target.value === "name") {
+//         productList.sortByName();
+//         productList.renderList();
+//       } else if (e.target.value === "price") {
+//         productList.sortByPrice();
+//         productList.renderList();
+//       }
+//     });
+
+// const nameOption = document.createElement("option");
+// nameOption.value = "name";
+// nameOption.text = "Sort by Name";
+// sortSelect.add(nameOption);
+
+// const priceOption = document.createElement("option");
+// priceOption.value = "price";
+// priceOption.text = "Sort by Price";
+// sortSelect.add(priceOption);
+
+// const productList = new ProductList(
+//   "tent",
+//   new ExternalServices(),
+//   document.querySelector(".product-list")
+// );
+
+// productList.init();
+// document.querySelector(".products").prepend(sortSelect);
