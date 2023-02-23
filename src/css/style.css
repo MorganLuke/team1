@@ -252,6 +252,8 @@ button {
   font-weight: bold;
   padding: 8px;
   font-size: 16px;
+
+  cursor: pointer;
 }
 .sort-button:hover{
   background: #ce6c16;
