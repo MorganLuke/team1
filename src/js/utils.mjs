@@ -1,3 +1,5 @@
+import { cartTotals } from "./cartTotals";
+
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
@@ -73,4 +75,5 @@ export async function loadHeaderFooter() {
   let footerEl = document.querySelector("#main-footer");
   renderWithTemplate(hTemplate, headerEl);
   renderWithTemplate(fTemplate, footerEl);
+  cartTotals();
 }

@@ -1,5 +1,5 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
-
+import { cartTotals } from "./cartTotals.js";
 // let cTotal = 0;
 
 // Declare class ShoppingCart
@@ -106,6 +106,8 @@ export default class ShoppingCart {
       setLocalStorage("so-cart", cartItems);
       // Re-render the cart contents
       this.renderCartContents();
+      // updates cart totals for superscipt on backpack icon
+      cartTotals();
       // Show the success message
       const successMessage = document.createElement("div");
       successMessage.innerHTML = "Item successfully removed from the cart!";

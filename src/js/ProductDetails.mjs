@@ -1,4 +1,5 @@
 // import { setLocalStorage } from "./utils.mjs";
+import { cartTotals } from "./cartTotals.js";
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 // import ProductData from "./ProductData.mjs";
 // import {ProductDetails, addProductToCart} from "./ProductDetails.mjs";
@@ -51,6 +52,8 @@ addToCart() {
     cart_list.push(this.product);
     setLocalStorage("so-cart", cart_list);
 
+    // updates cart totals for superscipt on backpack icon
+    cartTotals();
     // Adds shake animation to cart when items are being added to the cart
     const cartIcon = document.getElementById("cart-icon");
     cartIcon.classList.add("shake");

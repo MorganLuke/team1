@@ -1,16 +1,12 @@
-import { getLocalStorage} from "./utils.mjs";
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
-if (localStorage.getItem("so-cart")) {
-    // Get the cart items from local storage using the key
-    const cartItems = getLocalStorage(so-cart);
-    // Check if the cart items array is empty
-    if (cartItems.length === 0) {
-        console.log(cartItems);
-      // If the cart items array is empty, add the "hide" class to the cart footer
-      document.getElementById("itemsCart").classList.add("hide");
-      // Return from the function
-    }
+export function cartTotals(){
+  let cart_list = [];
+  if (localStorage.getItem("so-cart")) {
+    cart_list = getLocalStorage("so-cart");
     document.getElementById("itemsCart").classList.remove("hide");
-    document.getElementById("itemsCart") = cartItems.length;
-
-}
+    document.getElementById("itemsCart").innerHTML = cart_list.length;
+    if (cart_list.length == 0)
+    document.getElementById("itemsCart").classList.add("hide");
+    }
+  }
