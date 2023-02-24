@@ -48,7 +48,29 @@ addToCart() {
   
     if (localStorage.getItem("so-cart")) {
       cart_list = getLocalStorage("so-cart");
+      cart_list.forEach(item => setQuantity.bind(this)(item));;
     }
+    function setQuantity(item) {
+      let arrayQuantity = {"quantity": 1};
+        if(item.Id == this.productId) {
+          if (item.quantity) {
+            item.quantity += 1;
+          }else
+          {
+            cart_list.item.push(arrayQuantity);
+          }
+        }else {
+          let currentItem = this.product;
+          currentItem.push(arrayQuantity);
+    }
+    
+        console.log(cart_list);
+        
+        cart_list.foreach(product => setQuantity(product));
+          
+    
+    
+          }
     cart_list.push(this.product);
     setLocalStorage("so-cart", cart_list);
 
