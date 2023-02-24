@@ -45,33 +45,27 @@ export default class ProductDetails {
 
 addToCart() {
   let cart_list = [];
+  let needsAdded = 1;
   
     if (localStorage.getItem("so-cart")) {
       cart_list = getLocalStorage("so-cart");
       cart_list.forEach(item => setQuantity.bind(this)(item));;
     }
     function setQuantity(item) {
-      let arrayQuantity = {"quantity": 1};
         if(item.Id == this.productId) {
+          needsAdded = 0;
           if (item.quantity) {
             item.quantity += 1;
           }else
           {
-            cart_list.item.push(arrayQuantity);
+            item.quantity = 1;
           }
-        }else {
-          let currentItem = this.product;
-          currentItem.push(arrayQuantity);
-    }
+        } 
     
-        console.log(cart_list);
-        
-        cart_list.foreach(product => setQuantity(product));
-          
-    
-    
-          }
+  }
+  if (needsAdded == 1) {
     cart_list.push(this.product);
+  }
     setLocalStorage("so-cart", cart_list);
 
     // updates cart totals for superscipt on backpack icon
