@@ -37,6 +37,22 @@ export default class ProductList {
     this.products = list;
     this.renderList(this.products);
     document.querySelector(".title").innerHTML = this.category;
+    
+    const breadcrumbElement = document.querySelector(".breadcrumb");
+    breadcrumbElement.innerHTML = "";
+    if (this.category) {
+      const homeElement = document.createElement("span")
+      homeElement.innerHTML = `<a href="/">Home</a> > `
+      breadcrumbElement.appendChild(homeElement)
+    }
+    if (this.category) {
+      const categoryElement = document.createElement("span");
+      categoryElement.innerHTML = `${this.category.charAt(0).toUpperCase() + this.category.slice(1)} > `;
+      breadcrumbElement.appendChild(categoryElement);
+    }
+    const productCategoryElement = document.createElement("span");
+    productCategoryElement.innerHTML = `(${list.length} items)`;
+    breadcrumbElement.appendChild(productCategoryElement);
 
     // Add event listeners for sorting by name and price
     document.getElementById("sort-by-name").addEventListener("click", this.sortByName);

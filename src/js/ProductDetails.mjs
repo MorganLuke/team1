@@ -1,4 +1,4 @@
-// import { setLocalStorage } from "./utils.mjs";
+// import { setLocalStorage } from "./utils.mjs";  
 import { cartTotals } from "./cartTotals.js";
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 // import ProductData from "./ProductData.mjs";
@@ -109,17 +109,18 @@ addToCart() {
 //     const product = await dataSource.findProductById(e.target.dataset.id);
 //     addProductToCart(product);
 //   }
-  renderProductDetails(selector) {
-    const element = document.querySelector(selector);
-    element.insertAdjacentHTML(
-      "afterBegin",
-      productDetailsTemplate(this.product)
-    );
-  }
-};
+renderProductDetails(selector) {
+  const element = document.querySelector(selector);
+  const breadcrumb = document.querySelector(".breadcrumb");
+  breadcrumb.innerHTML = `
+      <a href="/">Home</a> >
+      <a href="/product-listing/index.html?category=${this.product.Category}">${this.product.Category.charAt(0).toUpperCase() + this.product.Category.slice(1)}</a> >
+      <span>${this.product.NameWithoutBrand}</span>
+  `;
+  element.insertAdjacentHTML(
+    "afterBegin",
+    productDetailsTemplate(this.product)
+  );
+}
 
-//   // add listener to Add to Cart button
-  // document
-  //   .getElementById("addToCart")
-  //   .addEventListener("click", addToCartHandler);
-  
+};
