@@ -45,11 +45,27 @@ export default class ProductDetails {
 
 addToCart() {
   let cart_list = [];
+  let needsAdded = 1;
   
     if (localStorage.getItem("so-cart")) {
       cart_list = getLocalStorage("so-cart");
+      cart_list.forEach(item => setQuantity.bind(this)(item));;
     }
+    function setQuantity(item) {
+        if(item.Id == this.productId) {
+          needsAdded = 0;
+          if (item.quantity) {
+            item.quantity += 1;
+          }else
+          {
+            item.quantity = 1;
+          }
+        } 
+    
+  }
+  if (needsAdded == 1) {
     cart_list.push(this.product);
+  }
     setLocalStorage("so-cart", cart_list);
 
     // updates cart totals for superscipt on backpack icon
