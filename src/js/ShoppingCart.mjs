@@ -47,13 +47,28 @@ export default class ShoppingCart {
       // Render the HTML templates for the cart items on the page
       document.querySelector(".product-list").innerHTML = htmlItems.join("");
       // Render the total on the page
-      document.querySelector(".cart-total").innerHTML = `Total: $${total}`;
+      document.querySelector(".cart-total").innerHTML = `Total: $${total.toFixed(2)}`;
 
       // Add an event listener for the "click" event to all the elements with a "data-id" attribute
       document.querySelectorAll(`[data-id]`).forEach((item) => { 
         item.addEventListener(`click`, (event) => { 
           // Call the removeItem method when an element with a "data-id" attribute is clicked
           this.removeItem(event); 
+        });
+      });
+
+      // Add an event listener for the "click" event to all the elements with a "data-id-add" attribute
+      document.querySelectorAll(`[data-id-add]`).forEach((item) => { 
+        item.addEventListener(`click`, (event) => { 
+          // Call the increase-quantity method when an element with a "data-id" attribute is clicked
+          this.increase(event); 
+        });
+      });
+      // Add an event listener for the "click" event to all the elements with a "data-id-min" attribute
+      document.querySelectorAll(`[data-id-min]`).forEach((item) => { 
+        item.addEventListener(`click`, (event) => { 
+          // Call the decrease quantity method when an element with a "data-id-min" attribute is clicked
+          this.decrease(event); 
         });
       });
     }
@@ -74,8 +89,9 @@ export default class ShoppingCart {
       <h2 class="card__name">${item.Name}</h2>
     </a>
     <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-    <p class="cart-card__quantity">qty: ${item.quantity}</p>
-    <p class="cart-card__price">$${item.FinalPrice}</p>
+    <span class="quantityMin" data-id-min="${item.Id}")>-</span> <span class="quantityAdd" data-id-add="${item.Id}">+</span>
+    <p class="cart-card__quantity">qty: ${item.quantity} </p>
+    <p class="cart-card__price">$${item.FinalPrice.toFixed(2)}</p>
     <span class="cart-card__remove" data-id="${item.Id}" title="Remove from cart">❌</span>
   </li>`;
   // Return the generated HTML
@@ -124,8 +140,51 @@ export default class ShoppingCart {
         successMessage.remove();
       }, 3000);
   }
+
 }
+  increase(event) {
+      // Get the id of the item to be increased from the data-id-add attribute of the target
+      const selectedId = event.target.dataset.id;
+      let cartItems = getLocalStorage("so-cart");
+      let index = cartItems.findIndex(item => item.Id === selectedId);
+      let quantity = cartItems[index].quantity;
+        quantity += 1;
+        // Update the local storage with the new cart items
+        setLocalStorage("so-cart", cartItems);
+        // Re-render the cart contents
+        this.renderCartContents();
+        // updates cart totals for superscipt on backpack icon
+        cartTotals();
+        }
+
+  decrease(event) {
+      // Get the id of the item to be decreased from the data-id-min attribute of the target
+      const selectedId = event.target.dataset.id;
+      let cartItems = getLocalStorage("so-cart");
+      let index = cartItems.findIndex(item => item.Id === selectedId);
+      
+      let quantity = cartItems[index].quantity;
+      if (quantity > 1) {
+        quantity -= 1;
+      
+        // Update the local storage with the new cart items
+        setLocalStorage("so-cart", cartItems);
+            // Re-render the cart contents
+            this.renderCartContents();
+            // updates cart totals for superscipt on backpack icon
+            cartTotals();
+      }
+
+      else {
+        this.removeItem(event);
+      }
+
+    }
+
+
 }
+
+
 
 
 
