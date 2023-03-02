@@ -180,7 +180,33 @@ export default class ShoppingCart {
       }
 
       else {
-        this.removeItem(event);
+        // this.removeItem(event);
+              // Check if the item was found in the cart
+          if (index >= 0) {
+            // Remove the item from the cart
+            cartItems.splice(index, 1);
+            // Update the local storage with the new cart items
+            setLocalStorage("so-cart", cartItems);
+            // Re-render the cart contents
+            this.renderCartContents();
+            // updates cart totals for superscipt on backpack icon
+            cartTotals();
+            // Show the success message
+            const successMessage = document.createElement("div");
+            successMessage.innerHTML = "Item successfully removed from the cart!";
+            successMessage.style.backgroundColor = "green";
+            successMessage.style.color = "white";
+            successMessage.style.padding = "20px";
+            successMessage.style.position = "fixed";
+            successMessage.style.borderRadius = "5px"
+            // successMessage.style.transform = "translate(-50%, -50%)";
+            successMessage.style.top = "0";
+            successMessage.style.right = "0";
+            document.body.appendChild(successMessage);
+            setTimeout(() => {
+              successMessage.remove();
+            }, 3000);
+        }
       }
 
     }
