@@ -86,7 +86,8 @@ header {
   color: var(--tertiary-color);
 }
 
-button, .checkout-btn {
+button,
+.checkout-btn {
   padding: 0.5em 2em;
   background-color: var(--secondary-color);
   color: white;
@@ -100,19 +101,19 @@ button, .checkout-btn {
   display: inline-block;
   background-color: var(--secondary-color);
   color: white;
-  padding: .2rem;
+  padding: 0.2rem;
   border: 0;
   width: 1.5rem;
   border-radius: 5px;
-  margin:0;
+  margin: 0;
 }
-.checkout-btn{
+.checkout-btn {
   width: fit-content;
   margin: 20px auto;
   text-decoration: none;
   display: inline-block;
 }
-.checkout-btn:hover{
+.checkout-btn:hover {
   background-color: #818b2e;
 }
 .divider {
@@ -274,7 +275,7 @@ button, .checkout-btn {
   color: var(--dark-grey);
 }
 /* Styles for sorting the products list by name or price*/
-.sort-button{
+.sort-button {
   background: linear-gradient(to right, #e09450, #ce6c16);
   color: white;
 
@@ -288,7 +289,7 @@ button, .checkout-btn {
 
   cursor: pointer;
 }
-.sort-button:hover{
+.sort-button:hover {
   background: #ce6c16;
 }
 /* Styles for product lists */
@@ -474,7 +475,7 @@ button, .checkout-btn {
   width: 100%;
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Style for the modal content */
@@ -486,10 +487,11 @@ button, .checkout-btn {
   width: 80%; /* Could be more or less, depending on screen size */
 }
 
-.modal-content form{
-    text-align: center;
+.modal-content form {
+  text-align: center;
 }
-.modal-content h2, p{
+.modal-content h2,
+p {
   text-align: center;
 }
 .modal-content button {
@@ -499,7 +501,7 @@ button, .checkout-btn {
 .modal-content input {
   padding: 10px;
 }
-.modal-content label{
+.modal-content label {
   margin: 0px 0px 0 15px;
 }
 /* Style for the close button */
@@ -533,18 +535,18 @@ button, .checkout-btn {
 
 /* Style for the register button */
 #registerBtn {
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  #registerBtn:hover {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+#registerBtn:hover {
   background-color: darkgray;
   color: #333;
 }
@@ -554,14 +556,16 @@ button, .checkout-btn {
   margin-top: 10px;
   margin-bottom: 20px;
 }
-.breadcrumb-container, .breadcrumb a{
+.breadcrumb-container,
+.breadcrumb a {
   color: var(--tertiary-color);
   text-decoration: none;
 }
-.breadcrumb-container, .breadcrumb a:hover{
+.breadcrumb-container,
+.breadcrumb a:hover {
   text-decoration: underline;
 }
-.product-breadcrumb{
+.product-breadcrumb {
   margin-top: 10px;
 }
 .breadcrumb {

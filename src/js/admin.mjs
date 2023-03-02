@@ -29,11 +29,9 @@ async login(creds, next) {
 }
 
 showLogin(){
-    this.targetElement.innerHtml = this.loginTemplate();
+    this.targetElement.innerHtml = loginTemplate();
 
-    document.querySelector("#login").addEventListener("click", this.login());
-
-    document.querySelector("#loginButton").addEventListener("click", (e) => {
+    document.querySelector("#login").addEventListener("click", (e) => {
         const email = document.querySelector("#email").value;
         const password = document.querySelector("#password").value;
         this.login({ email, password }, this.showOrders.bind(this));
@@ -61,8 +59,9 @@ async showOrders() {
     }
   }
 
+}
 
-loginTemplate(){
+function loginTemplate(){
     return `<form class="loginForm">
     
         <fieldset>
@@ -79,5 +78,15 @@ loginTemplate(){
     </form>`;
 }
 
-}
 
+// test
+function orderTemplate() {
+    return `<h2>Current Orders</h2>
+    <table id="orders">
+    <thead>
+    <tr><th>Id</th><th>Date</th><th>#Items</th><th>Total</th>
+    </thead>
+    <tbody class="order-body"></tbody>
+    </table>
+    `;
+}

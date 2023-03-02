@@ -11,16 +11,16 @@
     <link rel="stylesheet" href="../css/style.css" />
 
     <script type="module">
-        // Normally we have been creating a separate js file to hold this. I put it here to show that you can...the next question is should you?
-        // Advantages to putting it here: one less file to request and download.
-        // Disadvantages: it breaks the pattern we have established with our other pages, and the separation of concerns...
-        import { loadHeaderFooter } from "../js/utils.mjs";
-        import Admin from "../js/Admin.mjs";
-  
-        loadHeaderFooter();
-        const myAdmin = new Admin("main");
-        myAdmin.showLogin();
-      </script>
+      // Normally we have been creating a separate js file to hold this. I put it here to show that you can...the next question is should you?
+      // Advantages to putting it here: one less file to request and download.
+      // Disadvantages: it breaks the pattern we have established with our other pages, and the separation of concerns...
+      import { loadHeaderFooter } from "../js/utils.mjs";
+      import Admin from "../js/Admin.mjs";
+
+      loadHeaderFooter();
+      const myAdmin = new Admin("main");
+      myAdmin.showLogin();
+    </script>
   </head>
 
   <body>
