@@ -96,6 +96,16 @@ button, .checkout-btn {
   font-size: var(--large-font);
   cursor: pointer;
 }
+.quantityBtn {
+  display: inline-block;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: .2rem;
+  border: 0;
+  width: 1.5rem;
+  border-radius: 5px;
+  margin:0;
+}
 .checkout-btn{
   width: fit-content;
   margin: 20px auto;
