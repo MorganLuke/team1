@@ -8,11 +8,6 @@ export default class Admin {
         this.services = new ExternalServices();
     }
 
-    // init(){
-    //     this.showLogin();
-    // }
-
-
 async login(creds, next) {
     // I built the login method with a callback: next. 
     // This makes it much more flexible...
@@ -28,8 +23,9 @@ async login(creds, next) {
     }
 }
 
-showLogin(){
-    this.targetElement.innerHtml = loginTemplate();
+showLogin() {
+
+    this.targetElement.innerHTML = loginTemplate();
 
     document.querySelector("#login").addEventListener("click", (e) => {
         const email = document.querySelector("#email").value;

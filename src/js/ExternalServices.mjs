@@ -73,13 +73,13 @@ export default class ExternalServices {
     return await fetch(baseURL + "checkout/", options).then(convertToJson);
   }
 
-  async loginRequest(creds){
+  async loginRequest(user){
     const options = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(creds),
+      body: JSON.stringify(user),
     };
     const response = await fetch(baseURL + "login", options).then(
       convertToJson
@@ -103,6 +103,4 @@ export default class ExternalServices {
     );
     return response;
   }
-
-
 }
