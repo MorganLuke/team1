@@ -89,8 +89,8 @@ export default class ShoppingCart {
       <h2 class="card__name">${item.Name}</h2>
     </a>
     <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-    <span class="quantityMin" data-id-min="${item.Id}")>-</span> <span class="quantityAdd" data-id-add="${item.Id}">+</span>
-    <p class="cart-card__quantity">qty: ${item.quantity} </p>
+  
+    <p class="cart-card__quantity">    <span class="quantityBtn quantityMin" data-id-Min="${item.Id}")>-</span> <span class="cart-card__quantity"> qty: ${item.quantity} </span><span class="quantityBtn quantityAdd" data-id-add="${item.Id}">+</span></p>
     <p class="cart-card__price">$${item.FinalPrice.toFixed(2)}</p>
     <span class="cart-card__remove" data-id="${item.Id}" title="Remove from cart">❌</span>
   </li>`;
@@ -144,11 +144,14 @@ export default class ShoppingCart {
 }
   increase(event) {
       // Get the id of the item to be increased from the data-id-add attribute of the target
-      const selectedId = event.target.dataset.id;
+      const selectedId = event.target.dataset.idAdd;
       let cartItems = getLocalStorage("so-cart");
       let index = cartItems.findIndex(item => item.Id === selectedId);
       let quantity = cartItems[index].quantity;
-        quantity += 1;
+        // quantity += 1;
+        // increase quantity of item
+        cartItems[index].quantity += 1;
+
         // Update the local storage with the new cart items
         setLocalStorage("so-cart", cartItems);
         // Re-render the cart contents
@@ -159,13 +162,14 @@ export default class ShoppingCart {
 
   decrease(event) {
       // Get the id of the item to be decreased from the data-id-min attribute of the target
-      const selectedId = event.target.dataset.id;
+      const selectedId = event.target.dataset.idMin;
       let cartItems = getLocalStorage("so-cart");
       let index = cartItems.findIndex(item => item.Id === selectedId);
       
       let quantity = cartItems[index].quantity;
       if (quantity > 1) {
-        quantity -= 1;
+        cartItems[index].quantity -= 1;
+
       
         // Update the local storage with the new cart items
         setLocalStorage("so-cart", cartItems);
