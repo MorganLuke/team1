@@ -37,7 +37,7 @@ showLogin() {
 async showOrders() {
     try {
       const orders = await this.services.getOrders(this.token);
-      this.mainElement.innerHTML = orderTemplate();
+      this.targetElement.innerHTML = orderTemplate();
       const parent = document.querySelector("#orders tbody");
       // why not a template like we have done before?  The markup here was simple enough that I didn't think it worth the overhead...but a template would certainly work!
       parent.innerHTML = orders
@@ -58,7 +58,7 @@ async showOrders() {
 }
 
 function loginTemplate(){
-    return `<form class="loginForm">
+    return `
     
         <fieldset>
             <legend>Login</legend>
@@ -70,8 +70,7 @@ function loginTemplate(){
             <input type="password" id="password" name="password" required>
             
             <button type="submit" id="login" ">Login</button>
-        </fieldset>
-    </form>`;
+        </fieldset>`;
 }
 
 

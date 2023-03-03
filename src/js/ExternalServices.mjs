@@ -1,4 +1,6 @@
-const baseURL = "https://wdd330-backend.onrender.com/"
+const baseURL = "https://wdd330-backend.onrender.com/";
+// const baseURLB = "https://wdd330-backend.vercel.app/";
+
 // const checkoutURL = "http://server-nodejs.cit.byui.edu:3000/checkout"
 
 async function convertToJson(res) {
