@@ -64,6 +64,7 @@ addToCart() {
     
   }
   if (needsAdded == 1) {
+    this.product.quantity = 1;
     cart_list.push(this.product);
   }
     setLocalStorage("so-cart", cart_list);
