@@ -644,7 +644,7 @@ p {
 
 /* Styling for the button when hovered */
 .loginForm button:hover {
-  background-color: #2E8B57;
+  background-color: #2e8b57;
 }
 
 @media screen and (min-width: 500px) {
@@ -659,7 +659,7 @@ p {
     font-size: inherit;
     grid-template-columns: 150px auto 15%;
   }
-  .loginForm{
+  .loginForm {
     width: 100%;
   }
 }
