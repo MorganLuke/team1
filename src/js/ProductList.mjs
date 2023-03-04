@@ -17,7 +17,40 @@ export function productCardTemplate(product) {
     <p class="product_discount"> Discount: $${discount.toFixed(2)}</p>
     <p class="product-card__price">$${product.FinalPrice}</p>
     </a>
-    
+    <!-- Trigger/Open The Modal -->
+      <button id="myBtn">Quick Lookup</button>
+
+    <!-- The Modal -->
+      <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+        <section class="product-detail"> <h3>${product.Brand.Name}</h3>
+        <h2 class="divider">${product.NameWithoutBrand}</h2>
+        <img
+          class="divider"
+          src="${product.Images.PrimaryLarge}"
+          alt="${product.NameWithoutBrand}"
+        />
+        <p class="retail"> Retail Price: $${retail}</p>
+        <p class="product_discount"> Discount: -$${discount.toFixed(2)}</p>
+        <p class="product-card__price">$${product.FinalPrice}</p>
+        <p class="product__color">${product.Colors[0].ColorName}</p>
+        <p class="product__description">
+        ${product.DescriptionHtmlSimple}
+        </p>
+        <div class="product-detail__add">
+          <!-- <button id="addToCart" data-id="${product.Id}">Add to Cart</button> -->
+        </div></section>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+      </div>
   </li>`;
 }             
 
@@ -57,8 +90,49 @@ export default class ProductList {
     // Add event listeners for sorting by name and price
     document.getElementById("sort-by-name").addEventListener("click", this.sortByName);
     document.getElementById("sort-by-price").addEventListener("click", this.sortByPrice);
+
+    // modal quick lookup
+    this.modal()
   }
 
+  modal(){
+    // Get the button that opens the modal
+    let btn = document.querySelectorAll("#myBtn");
+
+    // All page modals
+    let modals = document.querySelectorAll('#myModal');
+
+    // Get the <span> element that closes the modal
+    let spans = document.getElementsByClassName("close");
+
+    // When the user clicks the button, open the modal
+    for (let i = 0; i < btn.length; i++) {
+     btn[i].onclick = function(e) {
+        e.preventDefault();
+        // modal = document.querySelector(e.target.getAttribute("href"));
+        modals[i].style.display = "block";
+     }
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    for (let i = 0; i < spans.length; i++) {
+     spans[i].onclick = function() {
+        for (let index in modals) {
+          if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+        }
+     }
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+         for (let index in modals) {
+          if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+         }
+        }
+    }
+  }
+  
   sortByName() {
     this.products.sort((a, b) => a.Name.localeCompare(b.Name));
     this.renderList(this.products);
@@ -77,7 +151,7 @@ export default class ProductList {
     // Render the sorted list
     renderListWithTemplate(productCardTemplate, this.listElement, list);
   }
-}
+  }
 
 
     
