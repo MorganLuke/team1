@@ -13,6 +13,7 @@ function productDetailsTemplate(product) {
       src="${product.Images.PrimaryLarge}"
       alt="${product.NameWithoutBrand}"
     />
+    <span id="colorOptions"></span>
     <p class="retail"> Retail Price: $${retail}</p>
     <p class="product_discount"> Discount: -$${discount.toFixed(2)}</p>
     <p class="product-card__price">$${product.FinalPrice}</p>
@@ -40,8 +41,39 @@ export default class ProductDetails {
     // Notice the .bind(this). Our callback will not work if we don't include that line. Review the readings from this week on 'this' to understand why.
     document.getElementById("addToCart")
             .addEventListener("click", this.addToCart.bind(this));
+    this.colorOptions();
 }
 
+colorOptions(){
+  let colorSpan = document.getElementById("colorOptions");
+  
+  if (this.product['Colors'].length == 1) {
+    colorSpan.classList.add("hide");
+  }
+
+  if (this.product['Colors'].length > 1) {
+    for (let i = 0; i < this.product['Colors'].length; i++) {
+      let color = document.createElement('span');
+      let img = document.createElement('img');
+      // let a = document.createElement("a");
+
+      // a.setAttribute("href", this.product.Images.PrimaryLarge)
+      img.setAttribute('src', this.product.Colors[i].ColorChipImageSrc);
+      img.setAttribute('alt', `Color Name: ${this.product.Colors[i].ColorName}`);
+
+      // a.append(img)
+      color.append(img);
+      
+      colorSpan.append(color);
+      colorSpan.onclick = function () {
+        document.querySelector("divider.img").innerHTML = a;
+      }
+      }
+    }
+  
+  console.log(this.product['Colors']);
+  console.log(this.product['Colors'].length);
+  }
 
 addToCart() {
   let cart_list = [];
