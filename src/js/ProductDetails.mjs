@@ -56,20 +56,37 @@ colorOptions(){
       let color = document.createElement('span');
       let img = document.createElement('img');
       // let a = document.createElement("a");
-
+      color.setAttribute("class", "color");
       // a.setAttribute("href", this.product.Images.PrimaryLarge)
       img.setAttribute('src', this.product.Colors[i].ColorChipImageSrc);
       img.setAttribute('alt', `Color Name: ${this.product.Colors[i].ColorName}`);
 
       // a.append(img)
       color.append(img);
-      
+      // color.addEventListener{"onclick", color.setAttribute("class", "colorSelected");
+
+      color.addEventListener("click", (e) => {
+        e.preventDefault();
+        // color.setAttribute("class", "colorSelected");
+
+        // color.classList.add("ColorSelected");
+        color.classList.toggle('colorSelected');
+
+        
+        // if (document.querySelector === "color") {
+        //   // color.style.display = "block";
+        //   color.setAttribute("class", "colorSelected");
+        // } else {
+        //   // color.style.display = "none";
+        //   color.setAttribute("class", "color");
+        // }
+      });
+
       colorSpan.append(color);
-      colorSpan.onclick = function () {
-        document.querySelector("divider.img").innerHTML = a;
+       
       }
       }
-    }
+    
   
   console.log(this.product['Colors']);
   console.log(this.product['Colors'].length);

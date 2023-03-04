@@ -687,6 +687,18 @@ span.title {
 #colorOptions span img {
   width: 30px;
   height: 30px;
-  margin: 1rem;
+  /* margin: 1rem; */
   border-radius: 5px;
+}
+
+.color{
+  border-color: #2e8b57;
+  border-width: 5px;
+  color: red;
+  padding: 1rem;
+}
+
+.colorSelected {
+  border-color: red;
+  border-width: 5px;
 }
